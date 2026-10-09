@@ -1,0 +1,13 @@
+.gradle/
+build/
+.idea/
+.vscode/
+*.iml
+.env
+.env.*
+!.env.example
+results/runs/
+*.log
+!results/published/**/k6.log
+*.pem
+*.key

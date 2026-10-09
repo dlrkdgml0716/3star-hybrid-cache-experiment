@@ -1,0 +1,28 @@
+{
+    "zero_errors":  true,
+    "total_errors":  0,
+    "instances":  [
+                      {
+                          "redis_errors":  {
+                                               "get":  0,
+                                               "put":  0,
+                                               "delete":  0,
+                                               "publish":  0
+                                           },
+                          "invalid_messages":  0,
+                          "negative_clock_delays":  0,
+                          "instance_id":  "app-1"
+                      },
+                      {
+                          "redis_errors":  {
+                                               "get":  0,
+                                               "put":  0,
+                                               "delete":  0,
+                                               "publish":  0
+                                           },
+                          "invalid_messages":  0,
+                          "negative_clock_delays":  0,
+                          "instance_id":  "app-2"
+                      }
+                  ]
+}

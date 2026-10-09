@@ -1,0 +1,168 @@
+{
+    "run_id":  "20261009T070225028Z-65f7c2e2",
+    "kind":  "normal-load",
+    "started_at_utc":  "2026-10-09T07:02:25.3801953Z",
+    "parameters":  {
+                       "pre_allocated_vus_override":  0,
+                       "writer":  "http://127.0.0.1:8084",
+                       "duration":  "30s",
+                       "write_ratio":  0.1,
+                       "max_vus_override":  0,
+                       "rps":  100,
+                       "reader":  "http://127.0.0.1:18084"
+                   },
+    "source_sha256":  [
+                          {
+                              "sha256":  "DEDFECCCE0C263712099E087336494F88E50D2737A324CB8CBD2E73ABF4BBB17",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/CacheLabApplication.java"
+                          },
+                          {
+                              "sha256":  "0C6CE33FF309647238EF059F953065C78DEF12B4DDF86BA4A13FF92FDAFD6FD1",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/LabProperties.java"
+                          },
+                          {
+                              "sha256":  "858B21E2EB9A43B4676C7F06F5CBD0482AC8C6819A3B3DF795D4759925F52CC9",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/api/LabController.java"
+                          },
+                          {
+                              "sha256":  "B5E799EA9BFAEB7F3D4B49368E9D8DCCECAE62D6EF9825A24E32F0A98D3AAEF0",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/HybridCache.java"
+                          },
+                          {
+                              "sha256":  "5A325F4845E181879BE945EAF068FFE0D59070B20E96AF3CCCABCAA602914950",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/Invalidation.java"
+                          },
+                          {
+                              "sha256":  "2933AA8E4EDC1202CBDA807CBD7C9952A88F73F273D4D465B67B14BFE98E99FD",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/InvalidationListener.java"
+                          },
+                          {
+                              "sha256":  "E561DEE4509FEF133BA6419E77B8858D59D3824E5A77A26B728EE877C563F573",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/LabMetrics.java"
+                          },
+                          {
+                              "sha256":  "0FE1CEAEF913CE5EB8D3A7CC412745C87E489277A78CEC0A952278D523D62462",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/SubscriptionConfiguration.java"
+                          },
+                          {
+                              "sha256":  "8FEDE02A7BD4AC5041D1AB3720A4AF761D4EFBC46ACD8E4FBB9867A109FC3995",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/Item.java"
+                          },
+                          {
+                              "sha256":  "137CFA2B1BD4A494822B733B57D8135341B9AC45DCDE76942C86986EC06C9813",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/ItemRepository.java"
+                          },
+                          {
+                              "sha256":  "513D35749D01693503961ED89C2060981001D6B7AB839AFC807AEF9B346D354B",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/ItemService.java"
+                          },
+                          {
+                              "sha256":  "48DAE08F233BADF9C49EA2E4C9DAB7FAAF49B1A7CB86DB60C2E5D50E106B735B",
+                              "path":  "src/main/resources/application.yml"
+                          },
+                          {
+                              "sha256":  "0F78EDFF571C648E92063A996CB6F85A354411C28F827F004CF57AD2CAEAD9FB",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheTest.java"
+                          },
+                          {
+                              "sha256":  "82ED6358FD26AF18B4B3424578AAF0DD5E252C4C859B307B0242739927D7AD3E",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/InvalidationListenerTest.java"
+                          },
+                          {
+                              "sha256":  "784C3B28B3A1466F37AFCE00CABB675C6413945CC51D41F7ED6DB548AA31E82F",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/item/ItemServiceTest.java"
+                          },
+                          {
+                              "sha256":  "B2D434BFE29CD0D7AC67C3574D9C3C4445A35A5809A372095EAA65BD225422CF",
+                              "path":  "scripts/Common.ps1"
+                          },
+                          {
+                              "sha256":  "1308F672F476BA2CAEE8DAD43C6B0073DDDDE1C4F6741DA873C7B7FD898297CE",
+                              "path":  "scripts/Invoke-Load.ps1"
+                          },
+                          {
+                              "sha256":  "EE03B7E68F4F4E2C72F5F52E1C0577154D78E78E2D5031A1DEA1575FA81A9CC7",
+                              "path":  "scripts/Invoke-StaleProbe.ps1"
+                          },
+                          {
+                              "sha256":  "273A85AC1A943190D49F7B18AE1BCDD36261880E4254198CACB0929865909B4A",
+                              "path":  "scripts/Invoke-SubscriberFailure.ps1"
+                          },
+                          {
+                              "sha256":  "27E5DAC7D76CD218B1B6C770F2023E2EC3A646A4030530C5E78F0257F7244FF6",
+                              "path":  "scripts/Verify-Measurements.ps1"
+                          },
+                          {
+                              "sha256":  "6B788ECD8529F7C368770EC3DB5D81828472F0B3D46F465615C8C3CAF4939716",
+                              "path":  "k6/load.js"
+                          },
+                          {
+                              "sha256":  "83389D77145F5B7C973340A46629A34DE6106800891950CBA675BDEC86985219",
+                              "path":  "infra/init.sql"
+                          },
+                          {
+                              "sha256":  "B5019860A22A9ABDBBFD2ADB33197887B32BB0A80C20F0E480825C906C88E8EF",
+                              "path":  "build.gradle"
+                          },
+                          {
+                              "sha256":  "7841905E65BCFFA88B7BE9E7C67A5EFE78E24A1F76A24DDA5D0649B208373E56",
+                              "path":  "settings.gradle"
+                          },
+                          {
+                              "sha256":  "B47ABFAAA9893EACCC80989295FA099EF4E6E84261CFF61BE14576756D9D25B3",
+                              "path":  "compose.yaml"
+                          },
+                          {
+                              "sha256":  "581F1801AA76738E9D7C054B23913C27F064F109C9CE84B515BA276C5E8DFF19",
+                              "path":  "Dockerfile"
+                          },
+                          {
+                              "sha256":  "1CD0520711F5DD7978F549F69FBEB387C2CA331D133AC95B2403ACC214EF43E4",
+                              "path":  "gradle/wrapper/gradle-wrapper.properties"
+                          }
+                      ],
+    "powershell_version":  "5.1.26100.9444",
+    "os":  "Microsoft Windows NT 10.0.26200.0",
+    "artifacts":  [
+                      {
+                          "sha256":  "13000F9E6029CC6554FAC66563F283D5D6A2E8F46DE85DEDDCE5CC77D3DEE8BB",
+                          "path":  "error-summary.json"
+                      },
+                      {
+                          "sha256":  "724E7C99B67309D8357EE767749F6640F035FAF00FCC873B0603C8249DD07487",
+                          "path":  "k6-summary.json"
+                      },
+                      {
+                          "sha256":  "A1700276503AB249921666C8B1AFC7FCA7A53F2AF4DE71EF1246B76B178DCE3C",
+                          "path":  "k6.log"
+                      },
+                      {
+                          "sha256":  "1C6DF101E039822EC9D3E6834F7ADA6FDD05EA715990EF6EB54B916CDD7F0191",
+                          "path":  "measurements-after.json"
+                      },
+                      {
+                          "sha256":  "CF748287F8F6D493A7CC29D3337FCAA6C2B73B98D855265A1DAA8A7C1D81FB72",
+                          "path":  "measurements-before.json"
+                      },
+                      {
+                          "sha256":  "A5BEF10566CF48D6A21DAFBBE9BAF865F318CD3499C45E8DB9CF3DE72DAB92C0",
+                          "path":  "message-delay.json"
+                      },
+                      {
+                          "sha256":  "6E00892DE68FD420AD51DC5F1A81291BAA68E50731DC52AEF88CF1A3716907B1",
+                          "path":  "metrics-after.json"
+                      },
+                      {
+                          "sha256":  "B9E7E44D6554616F9D9592384E58216187A66BF9B7EA715DBDB2CF5B905A3106",
+                          "path":  "metrics-before.json"
+                      },
+                      {
+                          "sha256":  "784064DACE0864A6DC633A4E647DE4016E2C5612B533D53D49FCC1E427285646",
+                          "path":  "stale-summary.json"
+                      }
+                  ],
+    "status":  "completed",
+    "k6_version":  "k6.exe v1.6.1 (commit/2ac2bb560e, go1.25.7, windows/amd64)",
+    "k6_exit_code":  0,
+    "finished_at_utc":  "2026-10-09T07:03:03.3600726Z"
+}

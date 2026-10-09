@@ -1,0 +1,31 @@
+server:
+  port: ${PORT:8080}
+spring:
+  application:
+    name: hybrid-cache-lab
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/cache_lab}
+    username: ${DB_USER:lab}
+    password: ${DB_PASSWORD:local-lab-only}
+    hikari:
+      maximum-pool-size: 10
+  sql:
+    init:
+      mode: never
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      connect-timeout: 1s
+      timeout: 1s
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+lab:
+  instance-id: ${INSTANCE_ID:local}
+  l1-ttl: ${L1_TTL:60s}
+  l2-ttl: ${L2_TTL:120s}
+  max-entries: 1000
+  max-events: 50000

@@ -1,0 +1,51 @@
+name: bappul-hybrid-cache-lab
+x-app: &app
+  image: bappul-hybrid-cache-lab:local
+  build: .
+  depends_on:
+    mysql:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+  environment: &app-env
+    DB_URL: jdbc:mysql://mysql:3306/cache_lab
+    DB_USER: lab
+    DB_PASSWORD: local-lab-only
+    REDIS_HOST: redis
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: cache_lab
+      MYSQL_USER: lab
+      MYSQL_PASSWORD: local-lab-only
+      MYSQL_ROOT_PASSWORD: local-root-only
+    volumes:
+      - mysql-single-key-data:/var/lib/mysql
+      - ./infra/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 2s
+      retries: 20
+  app-1:
+    <<: *app
+    ports: ["127.0.0.1:8084:8080"]
+    environment:
+      <<: *app-env
+      INSTANCE_ID: app-1
+  app-2:
+    <<: *app
+    ports: ["127.0.0.1:18084:8080"]
+    environment:
+      <<: *app-env
+      INSTANCE_ID: app-2
+volumes:
+  mysql-single-key-data:

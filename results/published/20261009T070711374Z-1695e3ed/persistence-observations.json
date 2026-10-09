@@ -1,0 +1,524 @@
+[
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  23.9581
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  590.2786
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  1111.7442
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  1643.8041
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  2167.2826
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  2785.811
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  3312.6684
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  3846.6974
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  4378.3661
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  4911.1656
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  5446.1189
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  5976.9705
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  6513.0737
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  7046.7853000000005
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  7578.7118
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  8107.9455000000007
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  8626.4589
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  9168.4687000000013
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  9695.2328
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  10236.0738
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  10761.472
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  11294.7747
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  11827.1959
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  12349.1505
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  12876.525800000001
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  13412.550500000001
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  13945.091
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  14478.9048
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  15019.4961
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  15599.808500000001
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  16129.3037
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  16651.1669
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  17181.0508
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  17709.9744
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  18232.3024
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  18767.5119
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  19294.7977
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  19826.341
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  20347.9431
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  20878.2843
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  21414.600300000002
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  21950.8662
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  22491.7449
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  23260.536500000002
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  23792.9084
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  24327.7261
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  24862.1016
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  25398.4945
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  25928.3158
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  26463.3767
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  26993.8626
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  27530.935800000003
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  28060.530700000003
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  28596.409
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  29143.2281
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  29674.4658
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  30208.115700000002
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  30745.7389
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  31276.3992
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  31811.422000000002
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  32345.2438
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  32881.8796
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  33412.4418
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  33945.668600000005
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  34479.7569
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  35036.7283
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  35577.6097
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  36112.0429
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  36653.309700000005
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  37196.421
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  37726.0643
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  38264.3612
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  38808.8954
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  39349.5095
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  39876.5879
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  40414.3222
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  40946.5729
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  41476.0558
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  42007.9838
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  42544.0575
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  43075.0281
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  43608.064600000005
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  44141.514
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  44675.5254
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  45218.240900000004
+    },
+    {
+        "status":  "observed",
+        "stale":  true,
+        "version":  6523,
+        "elapsed_ms":  45759.8067
+    },
+    {
+        "status":  "observed",
+        "stale":  false,
+        "version":  6824,
+        "elapsed_ms":  46295.350300000006
+    }
+]

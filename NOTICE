@@ -1,0 +1,5 @@
+The Gradle Wrapper files are standard Gradle tooling, copied from the existing
+Gradle 8.14.3 wrapper. Their original copyright and Apache 2.0 license notices
+are retained. No team application source, secrets, or private Git history
+are copied into this project. Application and experiment code here is a new
+standalone implementation of the cache experiment concept.

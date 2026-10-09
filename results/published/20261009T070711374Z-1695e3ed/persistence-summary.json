@@ -1,0 +1,8 @@
+{
+    "fresh_observed":  true,
+    "elapsed_ms":  46306.994900000005,
+    "timed_out":  false,
+    "reference_version":  6824,
+    "poll_interval_ms":  500,
+    "baseline":  "after subscription restoration and DB reference request"
+}

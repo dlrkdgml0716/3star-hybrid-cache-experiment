@@ -1,0 +1,62 @@
+[
+    {
+        "instanceId":  "app-1",
+        "bootId":  "c54d2d2a-b3e7-43d7-9ad7-77450def1f05",
+        "startedAt":  "2026-10-09T07:02:03.837588925Z",
+        "snapshotAt":  "2026-10-09T07:02:25.529627137Z",
+        "l1Ttl":  "PT1M",
+        "l2Ttl":  "PT2M",
+        "subscriberRunning":  true,
+        "subscriberListening":  true,
+        "publishedTotal":  0,
+        "receivedRemoteTotal":  0,
+        "discardedEvents":  0,
+        "l1Hits":  0.0,
+        "l2Hits":  0.0,
+        "dbLoads":  0.0,
+        "redisErrors":  {
+                            "put":  0.0,
+                            "publish":  0.0,
+                            "delete":  0.0,
+                            "get":  0.0
+                        },
+        "invalidMessages":  0.0,
+        "negativeClockDelays":  0.0,
+        "published":  [
+
+                      ],
+        "received":  [
+
+                     ]
+    },
+    {
+        "instanceId":  "app-2",
+        "bootId":  "57ae8c70-3c09-402d-aaae-07644dd9c749",
+        "startedAt":  "2026-10-09T07:02:07.685023239Z",
+        "snapshotAt":  "2026-10-09T07:02:25.553566413Z",
+        "l1Ttl":  "PT1M",
+        "l2Ttl":  "PT2M",
+        "subscriberRunning":  true,
+        "subscriberListening":  true,
+        "publishedTotal":  0,
+        "receivedRemoteTotal":  0,
+        "discardedEvents":  0,
+        "l1Hits":  0.0,
+        "l2Hits":  0.0,
+        "dbLoads":  0.0,
+        "redisErrors":  {
+                            "delete":  0.0,
+                            "publish":  0.0,
+                            "put":  0.0,
+                            "get":  0.0
+                        },
+        "invalidMessages":  0.0,
+        "negativeClockDelays":  0.0,
+        "published":  [
+
+                      ],
+        "received":  [
+
+                     ]
+    }
+]
