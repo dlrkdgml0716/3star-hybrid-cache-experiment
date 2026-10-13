@@ -1,0 +1,137 @@
+{
+  "verifiedAtUtc": "2026-10-13T03:04:52.058093+00:00",
+  "change": "Spring transactional service requests cache invalidation; cache defers deletion and publication to afterCommit",
+  "gradleExitCode": 0,
+  "tests": {
+    "total": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "bootJarSucceeded": true,
+  "database": "H2 in-memory, isolated test databases",
+  "redis": "mock (real Redis integration skipped)",
+  "actualRedisIntegrationExecuted": false,
+  "mysqlExperimentExecuted": false,
+  "k6ExperimentExecuted": false,
+  "sourceFiles": [
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/api/LabController.java",
+      "sha256": "858b21e2eb9a43b4676c7f06f5cbd0482ac8c6819a3b3df795d4759925f52cc9"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/cache/GenerationFence.java",
+      "sha256": "a1e60588b5c019e80bf6bef664d0fa4d415fd2ae7183ec84dffe404b950894b3"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/cache/HybridCache.java",
+      "sha256": "5989604f3463a2d357020086b4850a1e812c4d197137ccc6e04b90727333f176"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheConfiguration.java",
+      "sha256": "adfca1680781493bfdc0c94bb49883e395524ede67e83896e74438eb69ee7f09"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/cache/Invalidation.java",
+      "sha256": "5a325f4845e181879be945eaf068ffe0d59070b20e96af3cccabcaa602914950"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/cache/InvalidationListener.java",
+      "sha256": "2933aa8e4edc1202cbda807cbd7c9952a88f73f273d4d465b67b14bfe98e99fd"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/cache/LabMetrics.java",
+      "sha256": "e561dee4509fef133ba6419e77b8858d59d3824e5a77a26b728ee877c563f573"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/cache/SubscriptionConfiguration.java",
+      "sha256": "0fe1ceaef913ce5eb8d3a7cc412745c87e489277a78cec0a952278d523d62462"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/CacheLabApplication.java",
+      "sha256": "dedfeccce0c263712099e087336494f88e50d2737a324cb8cbd2e73abf4bbb17"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/item/Item.java",
+      "sha256": "8fede02a7bd4ac5041d1ab3720a4af761d4efbc46acd8e4fbb9867a109fc3995"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/item/ItemRepository.java",
+      "sha256": "137cfa2b1bd4a494822b733b57d8135341b9ac45dcde76942c86986ec06c9813"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/item/ItemService.java",
+      "sha256": "efe59449c48cb1bb612106db715c8a464a1eca351925d919fc79ea1866b13c28"
+    },
+    {
+      "path": "src/main/java/io/github/dlrkdgml0716/cachelab/LabProperties.java",
+      "sha256": "0c6ce33ff309647238ef059f953065c78def12b4ddf86ba4a13ff92fdafd6fd1"
+    },
+    {
+      "path": "src/test/java/io/github/dlrkdgml0716/cachelab/cache/GenerationFenceIntegrationTest.java",
+      "sha256": "c00a9fd9bb5902f6473fa480ba5b900f9baec47be400c61348abb711899f83b6"
+    },
+    {
+      "path": "src/test/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheRaceTest.java",
+      "sha256": "cd5a3edf0feddcb55972a6533f4a86b72ddfa0905df5f132db3d11e488f1a0da"
+    },
+    {
+      "path": "src/test/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheTest.java",
+      "sha256": "0da54c60272f6e5f8912f71782047aef5426b1b197036453d5af1f0b4c60108b"
+    },
+    {
+      "path": "src/test/java/io/github/dlrkdgml0716/cachelab/cache/InvalidationListenerTest.java",
+      "sha256": "82ed6358fd26af18b4b3424578aaf0dd5e252c4c859b307b0242739927d7ad3e"
+    },
+    {
+      "path": "src/test/java/io/github/dlrkdgml0716/cachelab/item/ItemServiceTest.java",
+      "sha256": "566ffbf393589cba046e2a6c8a661029e0e72297cd5d3c3b2dafe046ed11f905"
+    },
+    {
+      "path": "build.gradle",
+      "sha256": "61a9dad8bf4e3eaf47373056b97a5491dd3bba3930ae82f4205a14a9eea93b80"
+    },
+    {
+      "path": "settings.gradle",
+      "sha256": "7841905e65bcffa88b7be9e7c67a5efe78e24a1f76a24dda5d0649b208373e56"
+    },
+    {
+      "path": "scripts/gradle-test-ipv4.gradle",
+      "sha256": "4dd2c3e14c907570e86ad4a3045aa40556e14b47205f9b58a305280f89b3d1d9"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c609288ed5ced8528ed076991902686c7b002ff5d9c4d044835ba702c02e081e"
+    }
+  ],
+  "verificationArtifacts": [
+    {
+      "path": "gradle-output.txt",
+      "sha256": "a6d626afcde3c03431eb64e510ab855b14981b776fdbb39bd783cf4c3b9c0c39"
+    },
+    {
+      "path": "junit/TEST-io.github.dlrkdgml0716.cachelab.cache.GenerationFenceIntegrationTest.xml",
+      "sha256": "ae4046b1ac6472ef6a0e3437bf19e06d3916cafe99ff692802d55ce0065ad1fb"
+    },
+    {
+      "path": "junit/TEST-io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest.xml",
+      "sha256": "12a1f3e999bdcbe17be6f9d1e6f27e8fc04a9cba9c6dec7bd32c3be35e0e90dd"
+    },
+    {
+      "path": "junit/TEST-io.github.dlrkdgml0716.cachelab.cache.HybridCacheTest.xml",
+      "sha256": "4a1030a040be95660c58309f3d41f19c649665b8f729c84fc755c6ad49a589cb"
+    },
+    {
+      "path": "junit/TEST-io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest.xml",
+      "sha256": "fe58478cc062cf561f2dadb09ed58e5a4e1254f3081f2091aea31c6e7ae60e9b"
+    },
+    {
+      "path": "junit/TEST-io.github.dlrkdgml0716.cachelab.item.ItemServiceTest.xml",
+      "sha256": "9d67be432dcfcf68f8e4690a492fcc5ad86df262c8e9c23b852532a91d786886"
+    },
+    {
+      "path": "README.md",
+      "sha256": "672461231289fa29ea5b042397e040208b08c6bbb180432b21453d8b124f5185"
+    }
+  ]
+}

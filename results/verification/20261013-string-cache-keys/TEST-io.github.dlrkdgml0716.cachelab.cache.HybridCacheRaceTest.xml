@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-13T08:45:01.628Z" hostname="이강희" time="3.615">
+  <properties/>
+  <testcase name="annotationCachesByIdAndUncachedMethodAlwaysReadsDatabase()" classname="io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest" time="3.486"/>
+  <testcase name="generationReadFailureReturnsDatabaseWithoutCaching()" classname="io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest" time="0.032"/>
+  <testcase name="oldDatabaseLoadIsRejectedAfterAnotherInstanceInvalidates()" classname="io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest" time="0.049"/>
+  <testcase name="loaderExceptionPropagatesAndIsNotCached()" classname="io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest" time="0.022"/>
+  <testcase name="oldL2ReadIsNotPromotedAfterLocalInvalidation()" classname="io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest" time="0.023"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

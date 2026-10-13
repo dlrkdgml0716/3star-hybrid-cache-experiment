@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.dlrkdgml0716.cachelab.cache.GenerationFenceIntegrationTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2026-10-11T07:35:15.529Z" hostname="이강희" time="0.001">
+  <properties/>
+  <testcase name="realRedisExecutesCompareAndSetWithExpiry()" classname="io.github.dlrkdgml0716.cachelab.cache.GenerationFenceIntegrationTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

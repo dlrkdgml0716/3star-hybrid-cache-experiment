@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-11T07:35:21.032Z" hostname="이강희" time="0.199">
+  <properties/>
+  <testcase name="recordsRemoteMessageIdentityAndDoesNotRepublish()" classname="io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest" time="0.187"/>
+  <testcase name="malformedMessagesAreCountedWithoutEvicting()" classname="io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

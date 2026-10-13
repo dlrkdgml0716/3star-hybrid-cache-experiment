@@ -12,21 +12,42 @@ import static org.mockito.Mockito.*;
 
 class InvalidationListenerTest {
     @Test
-    void recordsRemoteMessageIdentityAndDoesNotRepublish() throws Exception {
+    void wireBodyIsPlainKeyAndTimestamp() {
+        var event = new Invalidation(1, 123456L);
+        assertEquals("1|123456", event.body());
+        assertEquals(event, Invalidation.parse(event.body()));
+    }
+
+    @Test
+    void keyOnlyMessageInvalidatesWithoutDelaySample() {
+        var props = new LabProperties("reader", Duration.ofSeconds(60), Duration.ofSeconds(120), 100, 10);
+        var metrics = new LabMetrics(new SimpleMeterRegistry(), props);
+        var cache = mock(HybridCache.class);
+        var listener = new InvalidationListener(cache, metrics);
+        Message message = mock(Message.class);
+        when(message.getBody()).thenReturn("1".getBytes(StandardCharsets.UTF_8));
+        listener.onMessage(message, null);
+        verify(cache).invalidateLocal(1);
+        assertEquals(1, metrics.snapshot(true, true).receivedTotal());
+        assertTrue(metrics.snapshot(true, true).received().isEmpty());
+    }
+
+    @Test
+    void recordsKeyAndTimestampAndDoesNotRepublish() throws Exception {
         var mapper = new ObjectMapper();
         var props = new LabProperties("reader", Duration.ofSeconds(60), Duration.ofSeconds(120), 100, 10);
         var registry = new SimpleMeterRegistry();
         var metrics = new LabMetrics(registry, props);
         var cache = mock(HybridCache.class);
-        var listener = new InvalidationListener(cache, mapper, metrics);
-        var event = new Invalidation("message-1", "writer", 1, Invalidation.epochMicros());
+        var listener = new InvalidationListener(cache, metrics);
+        var event = new Invalidation(1, Invalidation.epochMicros());
         Message message = mock(Message.class);
-        when(message.getBody()).thenReturn(mapper.writeValueAsBytes(event));
+        when(message.getBody()).thenReturn(event.body().getBytes(StandardCharsets.UTF_8));
         listener.onMessage(message, null);
         verify(cache).invalidateLocal(1);
         verify(cache, never()).invalidate(anyLong());
-        assertEquals("message-1", metrics.snapshot(true, true).received().get(0).messageId());
-        assertEquals(1, metrics.snapshot(true, true).receivedRemoteTotal());
+        assertEquals(event.sentAtMicros(), metrics.snapshot(true, true).received().get(0).sentAtMicros());
+        assertEquals(1, metrics.snapshot(true, true).receivedTotal());
     }
 
     @Test
@@ -35,7 +56,7 @@ class InvalidationListenerTest {
         var props = new LabProperties("reader", Duration.ofSeconds(60), Duration.ofSeconds(120), 100, 10);
         var registry = new SimpleMeterRegistry();
         var cache = mock(HybridCache.class);
-        var listener = new InvalidationListener(cache, mapper, new LabMetrics(registry, props));
+        var listener = new InvalidationListener(cache, new LabMetrics(registry, props));
         Message message = mock(Message.class);
         when(message.getBody()).thenReturn("{bad".getBytes(StandardCharsets.UTF_8));
         listener.onMessage(message, null);

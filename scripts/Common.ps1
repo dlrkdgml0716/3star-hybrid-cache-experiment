@@ -91,9 +91,12 @@ function Get-ErrorSummary($Before, $After) {
             throw 'Process changed; error counters are not comparable.'
         }
         $redis = @{}
-        foreach ($operation in @('get', 'put', 'delete', 'publish')) {
+        foreach ($operation in @('get', 'generation', 'put', 'delete', 'publish')) {
             if ($null -eq $Before[$i].redisErrors -or $null -eq $After[$i].redisErrors) {
                 throw 'Redis error counters are absent from the metrics snapshot.'
+            }
+            if ($null -eq $Before[$i].redisErrors.$operation -or $null -eq $After[$i].redisErrors.$operation) {
+                throw "Redis error counter '$operation' is absent from the metrics snapshot."
             }
             $delta = [double]$After[$i].redisErrors.$operation - [double]$Before[$i].redisErrors.$operation
             if ($delta -lt 0) { throw 'Redis error counter decreased.' }
@@ -109,21 +112,59 @@ function Get-ErrorSummary($Before, $After) {
     }
     return @{ instances = $instances; total_errors = $total; zero_errors = ($total -eq 0) }
 }
-function Get-DelaySummary($BeforeWriter, $AfterWriter, $BeforeReader, $AfterReader) {
+# Wire timestamps are not IDs. Reject ambiguous tokens instead of claiming exact matching.
+function Get-MessageToken($Event) {
+    if ($null -eq $Event.key -or $null -eq $Event.sentAtMicros -or [long]$Event.sentAtMicros -le 0) {
+        throw 'Key/timestamp message fields are missing or invalid.'
+    }
+    return ([string]$Event.key + '|' + [string]$Event.sentAtMicros)
+}
+function Get-MessageIndex($Events) {
+    $index = @{}
+    foreach ($event in $Events) {
+        $token = Get-MessageToken $event
+        if ($index.ContainsKey($token)) { throw 'Ambiguous duplicate key/timestamp; message matching is invalid.' }
+        $index[$token] = $event
+    }
+    return $index
+}
+function Get-MessageMatchWindow($BeforeWriter, $AfterWriter, $BeforeReader, $AfterReader) {
     Get-Window $BeforeWriter $AfterWriter
     Get-Window $BeforeReader $AfterReader
-    $oldIds = @{}
-    foreach ($p in $BeforeWriter.published) { $oldIds[$p.messageId] = $true }
-    $newIds = @{}
-    foreach ($p in $AfterWriter.published) { if (!$oldIds.ContainsKey($p.messageId)) { $newIds[$p.messageId] = $true } }
-    $samples = @($AfterReader.received | Where-Object { $newIds.ContainsKey($_.messageId) -and $null -ne $_.delayMicros })
+    if ($AfterReader.publishedTotal -ne $BeforeReader.publishedTotal) {
+        throw 'Reader published messages; origin cannot be distinguished with key/timestamp protocol.'
+    }
+    $old = Get-MessageIndex $BeforeWriter.published
+    $all = Get-MessageIndex $AfterWriter.published
+    $published = @($AfterWriter.published | Where-Object { !$old.ContainsKey((Get-MessageToken $_)) })
+    if ($published.Count -ne ($AfterWriter.publishedTotal - $BeforeWriter.publishedTotal)) {
+        throw 'Incomplete publication window.'
+    }
+    $oldReceived = Get-MessageIndex $BeforeReader.received
+    $allReceived = Get-MessageIndex $AfterReader.received
+    $received = @($AfterReader.received | Where-Object { !$oldReceived.ContainsKey((Get-MessageToken $_)) })
+    if ($received.Count -ne ($AfterReader.receivedTotal - $BeforeReader.receivedTotal)) {
+        throw 'Incomplete reception window or untimed messages.'
+    }
+    $receivedIndex = Get-MessageIndex $received
+    $publishedIndex = Get-MessageIndex $published
+    foreach ($event in $received) {
+        if (!$publishedIndex.ContainsKey((Get-MessageToken $event))) {
+            throw 'Unmatched reception; other publishers or window contamination may exist.'
+        }
+    }
+    return @{ published = $published; received = $received; receivedIndex = $receivedIndex }
+}
+function Get-DelaySummary($BeforeWriter, $AfterWriter, $BeforeReader, $AfterReader) {
+    $window = Get-MessageMatchWindow $BeforeWriter $AfterWriter $BeforeReader $AfterReader
+    $samples = @($window.received | Where-Object { $null -ne $_.delayMicros })
     $sorted = @($samples | ForEach-Object { [double]$_.delayMicros / 1000 } | Sort-Object)
     $mean = $null; $p95 = $null
     if ($sorted.Count -gt 0) {
         $mean = ($sorted | Measure-Object -Average).Average
         $p95 = $sorted[[Math]::Ceiling($sorted.Count * 0.95) - 1]
     }
-    return @{ metric = 'publish_timestamp_to_remote_listener_entry'; sample_count = $sorted.Count; mean_ms = $mean; p95_ms = $p95; p95_method = 'nearest-rank'; samples = $samples }
+    return @{ metric = 'publish_timestamp_to_reader_listener_entry'; matching = 'unique-key-timestamp-single-writer'; sample_count = $sorted.Count; mean_ms = $mean; p95_ms = $p95; p95_method = 'nearest-rank'; samples = $samples }
 }
 
 function Get-MeasurementWindow($Before, $After) {

@@ -3,19 +3,28 @@
 function Assert-Equal($Expected, $Actual) {
     if ($Expected -ne $Actual) { throw "Expected $Expected but got $Actual." }
 }
-$beforeWriter = [pscustomobject]@{ bootId = 'writer'; discardedEvents = 0; published = @([pscustomobject]@{ messageId = 'old' }) }
-$afterWriter = [pscustomobject]@{ bootId = 'writer'; discardedEvents = 0; published = @([pscustomobject]@{ messageId = 'old' }, [pscustomobject]@{ messageId = 'new' }) }
-$beforeReader = [pscustomobject]@{ bootId = 'reader'; discardedEvents = 0 }
-$afterReader = [pscustomobject]@{ bootId = 'reader'; discardedEvents = 0; received = @(
-    [pscustomobject]@{ messageId = 'old'; delayMicros = 999999 },
-    [pscustomobject]@{ messageId = 'new'; delayMicros = 2500 },
-    [pscustomobject]@{ messageId = 'unrelated'; delayMicros = 10000 }
-) }
+$old = [pscustomobject]@{ key = 1; sentAtMicros = 100; delayMicros = 999999 }
+$new = [pscustomobject]@{ key = 1; sentAtMicros = 200; delayMicros = 2500 }
+$beforeWriter = [pscustomobject]@{ bootId = 'writer'; discardedEvents = 0; publishedTotal = 1; published = @($old) }
+$afterWriter = [pscustomobject]@{ bootId = 'writer'; discardedEvents = 0; publishedTotal = 2; published = @($old, $new) }
+$beforeReader = [pscustomobject]@{ bootId = 'reader'; discardedEvents = 0; publishedTotal = 0; receivedTotal = 1; received = @($old) }
+$afterReader = [pscustomobject]@{ bootId = 'reader'; discardedEvents = 0; publishedTotal = 0; receivedTotal = 2; received = @($old, $new) }
 $result = Get-DelaySummary $beforeWriter $afterWriter $beforeReader $afterReader
 Assert-Equal 1 $result.sample_count
 Assert-Equal 2.5 $result.mean_ms
 Assert-Equal 2.5 $result.p95_ms
-$afterReader.received = @()
+$afterWriter.published = @($old, $new, $new)
+$rejected = $false
+try { Get-DelaySummary $beforeWriter $afterWriter $beforeReader $afterReader | Out-Null } catch { $rejected = $true }
+if (!$rejected) { throw 'Duplicate tokens were accepted.' }
+$afterWriter.published = @($old, $new)
+$afterReader.publishedTotal = 1
+$rejected = $false
+try { Get-DelaySummary $beforeWriter $afterWriter $beforeReader $afterReader | Out-Null } catch { $rejected = $true }
+if (!$rejected) { throw 'Reader publications were accepted.' }
+$afterReader.publishedTotal = 0
+$afterReader.received = @($old)
+$afterReader.receivedTotal = 1
 $result = Get-DelaySummary $beforeWriter $afterWriter $beforeReader $afterReader
 if ($null -ne $result.mean_ms -or $null -ne $result.p95_ms) { throw 'No samples must not become zero delay.' }
 $afterReader.bootId = 'restarted'

@@ -1,6 +1,6 @@
 package io.github.dlrkdgml0716.cachelab.cache;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.nio.charset.StandardCharsets;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Component;
@@ -8,12 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class InvalidationListener implements MessageListener {
     private final HybridCache cache;
-    private final ObjectMapper mapper;
     private final LabMetrics metrics;
 
-    public InvalidationListener(HybridCache cache, ObjectMapper mapper, LabMetrics metrics) {
+    public InvalidationListener(HybridCache cache, LabMetrics metrics) {
         this.cache = cache;
-        this.mapper = mapper;
         this.metrics = metrics;
     }
 
@@ -21,8 +19,8 @@ public class InvalidationListener implements MessageListener {
     public void onMessage(Message message, byte[] pattern) {
         long receivedAt = Invalidation.epochMicros();
         try {
-            Invalidation event = mapper.readValue(message.getBody(), Invalidation.class);
-            if (event.messageId() == null || event.origin() == null || event.key() != 1) {
+            Invalidation event = Invalidation.parse(new String(message.getBody(), StandardCharsets.UTF_8));
+            if (event.key() < 1) {
                 throw new IllegalArgumentException("Invalid invalidation message");
             }
             cache.invalidateLocal(event.key());

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.dlrkdgml0716.cachelab.cache.HybridCacheTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-11T07:35:20.809Z" hostname="이강희" time="0.218">
+  <properties/>
+  <testcase name="dbMissFillsCachesAndSecondReadUsesL1()" classname="io.github.dlrkdgml0716.cachelab.cache.HybridCacheTest" time="0.18"/>
+  <testcase name="l2HitWarmsL1AndRemoteInvalidationOnlyRemovesL1()" classname="io.github.dlrkdgml0716.cachelab.cache.HybridCacheTest" time="0.023"/>
+  <testcase name="redisReadFailureFallsBackAndIsCounted()" classname="io.github.dlrkdgml0716.cachelab.cache.HybridCacheTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

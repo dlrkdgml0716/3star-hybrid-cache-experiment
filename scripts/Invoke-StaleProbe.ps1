@@ -58,7 +58,11 @@ try {
         $summary += @{ delay_ms = $delay; attempted = $group.Count; observed = $ok.Count; errors = $group.Count - $ok.Count; stale_reads = $stale; stale_ratio_percent = $ratio }
     }
     Save-Json $summary (Join-Path $run.Directory 'stale-summary.json')
-    Save-Json @((Invoke-Lab "$Writer/experiment/metrics"), (Invoke-Lab "$Reader/experiment/metrics")) (Join-Path $run.Directory 'metrics-after.json')
+    $after = @((Invoke-Lab "$Writer/experiment/metrics"), (Invoke-Lab "$Reader/experiment/metrics"))
+    Save-Json $after (Join-Path $run.Directory 'metrics-after.json')
+    $errors = Get-ErrorSummary $before $after
+    Save-Json $errors (Join-Path $run.Directory 'error-summary.json')
+    if (!$errors.zero_errors) { throw 'Redis, listener or clock errors occurred; inspect error-summary.json.' }
     $failed = @($observations | Where-Object { $_.status -ne 'observed' }).Count -gt 0
     Complete-Run $run $(if ($failed) { 'partial' } else { 'completed' })
 } catch {

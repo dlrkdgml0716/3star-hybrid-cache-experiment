@@ -27,17 +27,12 @@ try {
     Save-Json $after (Join-Path $run.Directory 'metrics-after-window.json')
     Get-Window $before[0] $after[0]
     Get-Window $before[1] $after[1]
-    $oldPublished = @{}
-    foreach ($p in $before[0].published) { $oldPublished[$p.messageId] = $true }
-    $published = @($after[0].published | Where-Object { !$oldPublished.ContainsKey($_.messageId) })
-    $oldReceived = @{}
-    foreach ($r in $before[1].received) { $oldReceived[$r.messageId] = $true }
-    $received = @{}
-    foreach ($r in $after[1].received) { if (!$oldReceived.ContainsKey($r.messageId)) { $received[$r.messageId] = $true } }
-    if ($published.Count -ne ($after[0].publishedTotal - $before[0].publishedTotal)) { throw 'Incomplete publication event window.' }
-    $missing = @($published | Where-Object { !$received.ContainsKey($_.messageId) })
+    $window = Get-MessageMatchWindow $before[0] $after[0] $before[1] $after[1]
+    $published = @($window.published)
+    $received = $window.receivedIndex
+    $missing = @($published | Where-Object { !$received.ContainsKey((Get-MessageToken $_)) })
     if ($published.Count -eq 0) { throw 'No accepted publications; loss ratio is undefined.' }
-    Save-Json @{ accepted_publications = $published.Count; received_matching = $published.Count - $missing.Count; missing_ids = @($missing | ForEach-Object { $_.messageId }); missing_ratio_percent = 100.0 * $missing.Count / $published.Count; measurement_window_ms = $clock.Elapsed.TotalMilliseconds } (Join-Path $run.Directory 'message-loss.json')
+    Save-Json @{ accepted_publications = $published.Count; received_matching = $published.Count - $missing.Count; missing_tokens = @($missing | ForEach-Object { (Get-MessageToken $_) }); missing_ratio_percent = 100.0 * $missing.Count / $published.Count; measurement_window_ms = $clock.Elapsed.TotalMilliseconds } (Join-Path $run.Directory 'message-loss.json')
     $null = Invoke-Lab "$Reader/experiment/subscription?enabled=true" 'POST'
     for ($i = 0; $i -lt 50; $i++) {
         $ready = Invoke-Lab "$Reader/experiment/metrics"
@@ -71,11 +66,12 @@ try {
     Get-Window $after[0] $end[0]
     Get-Window $after[1] $end[1]
     $finalReference = Invoke-Lab "$Writer/items/1/db"
-    if ($end[0].publishedTotal -ne $after[0].publishedTotal -or $finalReference.version -ne $reference.version) {
+    if ($end[0].publishedTotal -ne $after[0].publishedTotal -or $end[1].publishedTotal -ne $after[1].publishedTotal -or $finalReference.version -ne $reference.version) {
         throw 'Additional writes occurred after the window; persistence/replay interpretation is invalid.'
     }
-    $replayed = @($end[1].received | Where-Object { $_.messageId -in @($missing | ForEach-Object { $_.messageId }) })
-    Save-Json @{ matching_missing_ids_received_after_recovery = @($replayed | ForEach-Object { $_.messageId }); received_count = $replayed.Count } (Join-Path $run.Directory 'replay-check.json')
+    $null = Get-MessageIndex $end[1].received
+    $replayed = @($end[1].received | Where-Object { (Get-MessageToken $_) -in @($missing | ForEach-Object { (Get-MessageToken $_) }) })
+    Save-Json @{ matching_missing_tokens_received_after_recovery = @($replayed | ForEach-Object { (Get-MessageToken $_) }); received_count = $replayed.Count } (Join-Path $run.Directory 'replay-check.json')
     $errors = @($observations | Where-Object { $_.status -eq 'error' }).Count
     Complete-Run $run $(if ($errors -gt 0) { 'partial' } else { 'completed' })
 } catch {

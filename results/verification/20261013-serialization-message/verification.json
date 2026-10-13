@@ -1,0 +1,126 @@
+﻿{
+    "tests_passed":  20,
+    "java":  "Corretto 17.0.17",
+    "kind":  "unit-and-synthetic-verification",
+    "build":  "passed",
+    "gradle_user_home":  "existing local Gradle cache",
+    "commands":  [
+                     "./gradlew.bat test --offline -I scripts/gradle-test-ipv4.gradle",
+                     "./gradlew.bat build --offline -I scripts/gradle-test-ipv4.gradle",
+                     "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/Verify-Measurements.ps1"
+                 ],
+    "external_services_started":  false,
+    "synthetic_aggregation":  "passed",
+    "source_sha256":  [
+                          {
+                              "sha256":  "DEDFECCCE0C263712099E087336494F88E50D2737A324CB8CBD2E73ABF4BBB17",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/CacheLabApplication.java"
+                          },
+                          {
+                              "sha256":  "0C6CE33FF309647238EF059F953065C78DEF12B4DDF86BA4A13FF92FDAFD6FD1",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/LabProperties.java"
+                          },
+                          {
+                              "sha256":  "858B21E2EB9A43B4676C7F06F5CBD0482AC8C6819A3B3DF795D4759925F52CC9",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/api/LabController.java"
+                          },
+                          {
+                              "sha256":  "C745EC92578B4D34E846632FC80EABC93BED5F625E839A3A150D74D7DF1604E8",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/GenerationFence.java"
+                          },
+                          {
+                              "sha256":  "DBEF8A1ACE81887A90A0E2BD0998FD7BE3A127E85BE7923B7DE5344E44674AAC",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/HybridCache.java"
+                          },
+                          {
+                              "sha256":  "ADFCA1680781493BFDC0C94BB49883E395524EDE67E83896E74438EB69EE7F09",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheConfiguration.java"
+                          },
+                          {
+                              "sha256":  "C2CE67F0441CEEC60A641B2025F498240EF3503FA9D0CFF57A83F60E82335C43",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/Invalidation.java"
+                          },
+                          {
+                              "sha256":  "F8AF12604B947C0695F922FA301128A63F28B65FCFDACE18F1C7714FFB88B235",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/InvalidationListener.java"
+                          },
+                          {
+                              "sha256":  "FBEA1782459BCD32FEA757C6A51E6A46DA73BE07E44DEC6D218F65F5F9907CB7",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/LabMetrics.java"
+                          },
+                          {
+                              "sha256":  "01B8D24DAA987838A4EFC0FB7FFE703FE84BBA040A5D803FB1B5EC673B8FE081",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/RedisValueConfiguration.java"
+                          },
+                          {
+                              "sha256":  "0FE1CEAEF913CE5EB8D3A7CC412745C87E489277A78CEC0A952278D523D62462",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/SubscriptionConfiguration.java"
+                          },
+                          {
+                              "sha256":  "04F055FBCB4372E415CD6B95985A813C344EFD0832B75F3271A995933494D245",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/Item.java"
+                          },
+                          {
+                              "sha256":  "137CFA2B1BD4A494822B733B57D8135341B9AC45DCDE76942C86986EC06C9813",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/ItemRepository.java"
+                          },
+                          {
+                              "sha256":  "EFE59449C48CB1BB612106DB715C8A464A1ECA351925D919FC79EA1866B13C28",
+                              "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/ItemService.java"
+                          },
+                          {
+                              "sha256":  "48DAE08F233BADF9C49EA2E4C9DAB7FAAF49B1A7CB86DB60C2E5D50E106B735B",
+                              "path":  "src/main/resources/application.yml"
+                          },
+                          {
+                              "sha256":  "D29FE8890EFC661196F40EE14DC623149FCABE80A679F0216D9A74449EF2E9DC",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/GenerationFenceIntegrationTest.java"
+                          },
+                          {
+                              "sha256":  "00B9FCA1085F24E80E2FB1B6FED1E2E6C24DD822B575DDBF9312884466C00B56",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheRaceTest.java"
+                          },
+                          {
+                              "sha256":  "542A4F973B33BBB91166E66630B0B5818327CA61A5A19149448D660D1A82340B",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheTest.java"
+                          },
+                          {
+                              "sha256":  "E16FB95A55BD0BE73986A4FA7D51AED45AB134A92105CED4C710BBEEC8647205",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/InvalidationListenerTest.java"
+                          },
+                          {
+                              "sha256":  "DE27B25CA902184AF1617BB2449F6BA08A13DA6CEF3F1CD6D45425D53046CBD3",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/RedisValueConfigurationTest.java"
+                          },
+                          {
+                              "sha256":  "7873AE0EBFA3A92DA0F5A9A85B61B12D5F9AFDFF34D78865A41D02448C31C03D",
+                              "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/item/ItemServiceTest.java"
+                          },
+                          {
+                              "sha256":  "30769E4537A6E9EB391CCE88F0662DDD381AB9EF7F3FBD2EBAA4EB6550A430B6",
+                              "path":  "scripts/Common.ps1"
+                          },
+                          {
+                              "sha256":  "4DD2C3E14C907570E86AD4A3045AA40556E14B47205F9B58A305280F89B3D1D9",
+                              "path":  "scripts/gradle-test-ipv4.gradle"
+                          },
+                          {
+                              "sha256":  "1308F672F476BA2CAEE8DAD43C6B0073DDDDE1C4F6741DA873C7B7FD898297CE",
+                              "path":  "scripts/Invoke-Load.ps1"
+                          },
+                          {
+                              "sha256":  "EE03B7E68F4F4E2C72F5F52E1C0577154D78E78E2D5031A1DEA1575FA81A9CC7",
+                              "path":  "scripts/Invoke-StaleProbe.ps1"
+                          },
+                          {
+                              "sha256":  "C4BE77126589686C754DCF9C9EA838F4983C54E002EA7022EB0F271D8B813A17",
+                              "path":  "scripts/Invoke-SubscriberFailure.ps1"
+                          },
+                          {
+                              "sha256":  "208A53761AFBFC404A128FC626A1C888A75A48EE88A219142E77579E100841AE",
+                              "path":  "scripts/Verify-Measurements.ps1"
+                          }
+                      ],
+    "redis_integration_tests_skipped":  1,
+    "checked_at_utc":  "2026-10-13T08:24:17.0474447Z"
+}

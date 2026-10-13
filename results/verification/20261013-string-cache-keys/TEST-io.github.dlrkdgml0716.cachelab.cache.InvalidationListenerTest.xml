@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-13T08:45:05.289Z" hostname="이강희" time="0.06">
+  <properties/>
+  <testcase name="keyOnlyMessageInvalidatesWithoutDelaySample()" classname="io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest" time="0.049"/>
+  <testcase name="wireBodyIsPlainKeyAndTimestamp()" classname="io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest" time="0.005"/>
+  <testcase name="recordsKeyAndTimestampAndDoesNotRepublish()" classname="io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest" time="0.003"/>
+  <testcase name="malformedMessagesAreCountedWithoutEvicting()" classname="io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,3 @@
+﻿Probe internal-error checks passed (synthetic HTTP only).
+Measurement aggregation checks passed.
+All PowerShell scripts parsed.

@@ -1,0 +1,65 @@
+
+C:\workspace\bappul-hybird-cache>if "Windows_NT" == "Windows_NT" setlocal
+
+C:\workspace\bappul-hybird-cache>set DIRNAME=C:\workspace\bappul-hybird-cache\ 
+
+C:\workspace\bappul-hybird-cache>if "C:\workspace\bappul-hybird-cache\" == "" set DIRNAME=. 
+
+C:\workspace\bappul-hybird-cache>set APP_BASE_NAME=gradlew 
+
+C:\workspace\bappul-hybird-cache>set APP_HOME=C:\workspace\bappul-hybird-cache\ 
+
+C:\workspace\bappul-hybird-cache>for %i in ("C:\workspace\bappul-hybird-cache\") do set APP_HOME=%~fi 
+
+C:\workspace\bappul-hybird-cache>set APP_HOME=C:\workspace\bappul-hybird-cache\ 
+
+C:\workspace\bappul-hybird-cache>set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m" 
+
+C:\workspace\bappul-hybird-cache>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+C:\workspace\bappul-hybird-cache>set JAVA_HOME=C:\Users\rkdgl\.jdks\corretto-17.0.17 
+
+C:\workspace\bappul-hybird-cache>set JAVA_EXE=C:\Users\rkdgl\.jdks\corretto-17.0.17/bin/java.exe 
+
+C:\workspace\bappul-hybird-cache>if exist "C:\Users\rkdgl\.jdks\corretto-17.0.17/bin/java.exe" goto execute 
+
+C:\workspace\bappul-hybird-cache>set CLASSPATH= 
+
+C:\workspace\bappul-hybird-cache>"C:\Users\rkdgl\.jdks\corretto-17.0.17/bin/java.exe" "-Xmx64m" "-Xms64m"   "-Dorg.gradle.appname=gradlew" -classpath "" -jar "C:\workspace\bappul-hybird-cache\\gradle\wrapper\gradle-wrapper.jar" --no-daemon --gradle-user-home C:\Users\rkdgl\.gradle -Djava.net.preferIPv4Stack=true -I scripts/gradle-test-ipv4.gradle test bootJar --rerun-tasks 
+.\gradlew.bat : Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+위치 줄:2 문자:181
++ ... tack=true'; .\gradlew.bat --no-daemon --gradle-user-home C:\Users\rkd ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Picked up JAVA_...rIPv4Stack=true:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :resolveMainClassName
+> Task :bootJar
+
+> Task :compileTestJava
+Note: C:\workspace\bappul-hybird-cache\src\test\java\io\github\dlrkdgml0716\cachelab\cache\HybridCacheTest.java uses un
+checked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+
+> Task :test
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has bee
+n appended
+
+[Incubating] Problems report is available at: file:///C:/workspace/bappul-hybird-cache/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 58s
+6 actionable tasks: 6 executed
+
+C:\workspace\bappul-hybird-cache>if 0 EQU 0 goto mainEnd 
+
+C:\workspace\bappul-hybird-cache>if "Windows_NT" == "Windows_NT" endlocal

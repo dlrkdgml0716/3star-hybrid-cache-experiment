@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.dlrkdgml0716.cachelab.item.ItemServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-13T08:21:18.483Z" hostname="이강희" time="0.53">
+  <properties/>
+  <testcase name="joinedWriteWaitsForOuterCommitEvenAfterServiceReturns()" classname="io.github.dlrkdgml0716.cachelab.item.ItemServiceTest" time="0.324"/>
+  <testcase name="outerExceptionRollsBackWithoutDeletingOrPublishing()" classname="io.github.dlrkdgml0716.cachelab.item.ItemServiceTest" time="0.04"/>
+  <testcase name="noTransactionInvalidatesImmediately()" classname="io.github.dlrkdgml0716.cachelab.item.ItemServiceTest" time="0.037"/>
+  <testcase name="standaloneWriteCommitsBeforeDeletionAndPublication()" classname="io.github.dlrkdgml0716.cachelab.item.ItemServiceTest" time="0.04"/>
+  <testcase name="rollbackOnlyDoesNotDeletePublishOrRecordCommittedWrite()" classname="io.github.dlrkdgml0716.cachelab.item.ItemServiceTest" time="0.034"/>
+  <testcase name="failedWriteDoesNotRequestInvalidation()" classname="io.github.dlrkdgml0716.cachelab.item.ItemServiceTest" time="0.048"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

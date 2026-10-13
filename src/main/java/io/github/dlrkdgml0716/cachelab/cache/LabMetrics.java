@@ -36,17 +36,17 @@ public class LabMetrics {
     public synchronized void published(Invalidation message, long subscribers) {
         publishedTotal.incrementAndGet();
         count("invalidation.published");
-        published.addLast(new Published(message.messageId(), message.key(), message.sentAtMicros(), subscribers));
+        published.addLast(new Published(message.key(), message.sentAtMicros(), subscribers));
         trim(published);
     }
 
     public synchronized void received(Invalidation message, long receivedAt, long invalidatedAt) {
-        if (props.instanceId().equals(message.origin())) return; // only remote messages for delay/loss
         receivedTotal.incrementAndGet();
-        count("invalidation.received.remote");
+        count("invalidation.received");
+        if (message.sentAtMicros() == null) return; // key-only messages have no delay sample
         long delay = receivedAt - message.sentAtMicros();
         if (delay < 0) count("clock.negative");
-        received.addLast(new Received(message.messageId(), message.origin(), message.key(),
+        received.addLast(new Received(message.key(),
                 message.sentAtMicros(), receivedAt, invalidatedAt, delay >= 0 ? delay : null));
         trim(received);
     }
@@ -82,6 +82,7 @@ public class LabMetrics {
     public synchronized Snapshot snapshot(boolean running, boolean listening) {
         Map<String, Double> redisErrors = Map.of(
                 "get", registry.counter("lab.redis.errors", "operation", "get").count(),
+                "generation", registry.counter("lab.redis.errors", "operation", "generation").count(),
                 "put", registry.counter("lab.redis.errors", "operation", "put").count(),
                 "delete", registry.counter("lab.redis.errors", "operation", "delete").count(),
                 "publish", registry.counter("lab.redis.errors", "operation", "publish").count());
@@ -100,13 +101,13 @@ public class LabMetrics {
                                       long discardedWrites, long discardedReads,
                                       List<WriteEvent> writes, List<ReadEvent> reads) {}
 
-    public record Published(String messageId, long key, long sentAtMicros, long subscriberCount) {}
-    public record Received(String messageId, String origin, long key, long sentAtMicros,
+    public record Published(long key, long sentAtMicros, long subscriberCount) {}
+    public record Received(long key, long sentAtMicros,
                            long receivedAtMicros, long invalidatedAtMicros, Long delayMicros) {}
     public record Snapshot(String instanceId, String bootId, Instant startedAt, Instant snapshotAt,
                            java.time.Duration l1Ttl, java.time.Duration l2Ttl,
                            boolean subscriberRunning, boolean subscriberListening,
-                           long publishedTotal, long receivedRemoteTotal, long discardedEvents,
+                           long publishedTotal, long receivedTotal, long discardedEvents,
                            double l1Hits, double l2Hits, double dbLoads,
                            Map<String, Double> redisErrors, double invalidMessages, double negativeClockDelays,
                            List<Published> published, List<Received> received) {}

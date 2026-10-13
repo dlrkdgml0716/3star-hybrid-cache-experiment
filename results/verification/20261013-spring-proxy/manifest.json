@@ -1,0 +1,167 @@
+{
+    "recordedAtUtc":  "2026-10-13T01:12:32.0741151Z",
+    "verificationType":  "Spring annotation proxy and deterministic cache race unit tests",
+    "command":  ".\\gradlew.bat --gradle-user-home \u003cexisting-gradle-cache\u003e -Djava.net.preferIPv4Stack=true -I scripts/gradle-test-ipv4.gradle test bootJar",
+    "java":  "17",
+    "springBoot":  "3.4.5",
+    "gradle":  "8.14.3",
+    "buildSuccessful":  true,
+    "suites":  [
+                   {
+                       "name":  "io.github.dlrkdgml0716.cachelab.cache.GenerationFenceIntegrationTest",
+                       "tests":  1,
+                       "failures":  0,
+                       "errors":  0,
+                       "skipped":  1
+                   },
+                   {
+                       "name":  "io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest",
+                       "tests":  5,
+                       "failures":  0,
+                       "errors":  0,
+                       "skipped":  0
+                   },
+                   {
+                       "name":  "io.github.dlrkdgml0716.cachelab.cache.HybridCacheTest",
+                       "tests":  3,
+                       "failures":  0,
+                       "errors":  0,
+                       "skipped":  0
+                   },
+                   {
+                       "name":  "io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest",
+                       "tests":  2,
+                       "failures":  0,
+                       "errors":  0,
+                       "skipped":  0
+                   },
+                   {
+                       "name":  "io.github.dlrkdgml0716.cachelab.item.ItemServiceTest",
+                       "tests":  1,
+                       "failures":  0,
+                       "errors":  0,
+                       "skipped":  0
+                   }
+               ],
+    "sourceFiles":  [
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/CacheLabApplication.java",
+                            "sha256":  "dedfeccce0c263712099e087336494f88e50d2737a324cb8cbd2e73abf4bbb17"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/LabProperties.java",
+                            "sha256":  "0c6ce33ff309647238ef059f953065c78def12b4ddf86ba4a13ff92fdafd6fd1"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/api/LabController.java",
+                            "sha256":  "858b21e2eb9a43b4676c7f06f5cbd0482ac8c6819a3b3df795d4759925f52cc9"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/GenerationFence.java",
+                            "sha256":  "a1e60588b5c019e80bf6bef664d0fa4d415fd2ae7183ec84dffe404b950894b3"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/HybridCache.java",
+                            "sha256":  "f7fd20ba5df70c89c14a9730c6f2ad2680571e84c6ae332b01a054d00573f544"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheConfiguration.java",
+                            "sha256":  "65aa45bbfd3a701c053f6f572840d08a0d016f6d564c9192b061b5f7d9312071"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/Invalidation.java",
+                            "sha256":  "5a325f4845e181879be945eaf068ffe0d59070b20e96af3cccabcaa602914950"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/InvalidationListener.java",
+                            "sha256":  "2933aa8e4edc1202cbda807cbd7c9952a88f73f273d4d465b67b14bfe98e99fd"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/LabMetrics.java",
+                            "sha256":  "e561dee4509fef133ba6419e77b8858d59d3824e5a77a26b728ee877c563f573"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/cache/SubscriptionConfiguration.java",
+                            "sha256":  "0fe1ceaef913ce5eb8d3a7cc412745c87e489277a78cec0a952278d523d62462"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/Item.java",
+                            "sha256":  "8fede02a7bd4ac5041d1ab3720a4af761d4efbc46acd8e4fbb9867a109fc3995"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/ItemRepository.java",
+                            "sha256":  "137cfa2b1bd4a494822b733b57d8135341b9ac45dcde76942c86986ec06c9813"
+                        },
+                        {
+                            "path":  "src/main/java/io/github/dlrkdgml0716/cachelab/item/ItemService.java",
+                            "sha256":  "778da4f00e995f0269d3d87e26a86ada9527cef16b9f5ea9d9abbe44e6b09af7"
+                        },
+                        {
+                            "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/GenerationFenceIntegrationTest.java",
+                            "sha256":  "c00a9fd9bb5902f6473fa480ba5b900f9baec47be400c61348abb711899f83b6"
+                        },
+                        {
+                            "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheRaceTest.java",
+                            "sha256":  "bdc41ae90ae245c3351bf0b09c34d601dd57e6807a347455ef1a2bd5208f73e7"
+                        },
+                        {
+                            "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/HybridCacheTest.java",
+                            "sha256":  "0da54c60272f6e5f8912f71782047aef5426b1b197036453d5af1f0b4c60108b"
+                        },
+                        {
+                            "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/cache/InvalidationListenerTest.java",
+                            "sha256":  "82ed6358fd26af18b4b3424578aaf0dd5e252c4c859b307b0242739927d7ad3e"
+                        },
+                        {
+                            "path":  "src/test/java/io/github/dlrkdgml0716/cachelab/item/ItemServiceTest.java",
+                            "sha256":  "784c3b28b3a1466f37afce00cabb675c6413945cc51d41f7ed6db548aa31e82f"
+                        },
+                        {
+                            "path":  "build.gradle",
+                            "sha256":  "61a9dad8bf4e3eaf47373056b97a5491dd3bba3930ae82f4205a14a9eea93b80"
+                        },
+                        {
+                            "path":  "settings.gradle",
+                            "sha256":  "7841905e65bcffa88b7be9e7c67a5efe78e24a1f76a24dda5d0649b208373e56"
+                        },
+                        {
+                            "path":  "scripts/gradle-test-ipv4.gradle",
+                            "sha256":  "4dd2c3e14c907570e86ad4a3045aa40556e14b47205f9b58a305280f89b3d1d9"
+                        }
+                    ],
+    "verificationArtifacts":  [
+                                  {
+                                      "path":  "junit/TEST-io.github.dlrkdgml0716.cachelab.cache.GenerationFenceIntegrationTest.xml",
+                                      "sha256":  "89617caa1502d308371da1c4bf0db0b0140f1e260c5e5ab8c608c3fd43da460f"
+                                  },
+                                  {
+                                      "path":  "junit/TEST-io.github.dlrkdgml0716.cachelab.cache.HybridCacheRaceTest.xml",
+                                      "sha256":  "f0d3ca5ec5e6d4d4bc6a635ef4ec3e38d9556ea33a2adf345997ac46938ee374"
+                                  },
+                                  {
+                                      "path":  "junit/TEST-io.github.dlrkdgml0716.cachelab.cache.HybridCacheTest.xml",
+                                      "sha256":  "4924c36adfe8f885075ce2cd54983fde322d398010e2c6b5921d60b4142aa2e7"
+                                  },
+                                  {
+                                      "path":  "junit/TEST-io.github.dlrkdgml0716.cachelab.cache.InvalidationListenerTest.xml",
+                                      "sha256":  "0e3abc2ce4b0be111641525ac4eab9352abd37ce775baf53d5d6da0c828dd8d7"
+                                  },
+                                  {
+                                      "path":  "junit/TEST-io.github.dlrkdgml0716.cachelab.item.ItemServiceTest.xml",
+                                      "sha256":  "51f9cbd93ffc1bcfc0b2074502cb893011148c17aa9efbf70738a4ab9ffc6ae2"
+                                  },
+                                  {
+                                      "path":  "gradle-output.txt",
+                                      "sha256":  "c0c780b764523fc4e1f065b3ddc834bea79d41a3b36e9bbb9b5d9c1b103f675d"
+                                  }
+                              ],
+    "actualRedisIntegrationExecuted":  false,
+    "mysqlExperimentExecuted":  false,
+    "k6ExperimentExecuted":  false,
+    "limitations":  [
+                        "Redis and repository are test doubles in proxy race tests",
+                        "Existing load results predate this Spring proxy path",
+                        "Write invalidation remains TransactionTemplate-after-return, not afterCommit callback",
+                        "No claim of original application performance or strong consistency"
+                    ]
+}
